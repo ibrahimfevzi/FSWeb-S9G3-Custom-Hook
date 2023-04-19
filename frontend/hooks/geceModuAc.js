@@ -1,7 +1,8 @@
-import { useState } from "react";
-
+import localStorageKullan from "./localStorageKullan";
 function useDarkMode() {
-  const [geceModu, setGeceModu] = useState(false);
+  const [geceModu, setGeceModu] = localStorageKullan("geceModu", false);
+  // localStorageKullan hook'u kullanılarak, geceModu ve setGeceModu değişkenleri tanımlanır.
+  //Burada, localStorageKullan("geceModu", false) ile geceModu değerini localStorage'da saklamış oluyoruz. Eğer daha önce bir değer kaydedilmişse bu değer alınacak, aksi halde varsayılan değer false olacak.
 
   const toggleDarkMode = () => {
     setGeceModu(!geceModu);

@@ -17,6 +17,16 @@ const App = () => {
       .then((res) => setCoinData(res.data))
       .catch((err) => console.log(err));
   }, []);
+
+  useEffect(() => {
+    document.body.classList.toggle("dark-mode", geceModu);
+  }, [geceModu]);
+
+  /*KENDİME NOTLAR
+Burada, useEffect kullanarak geceModu değeri değiştiğinde document.body.classList.toggle("dark-mode", geceModu) kodunu çalıştırıyoruz. 
+Böylece, dark-mode class'ı geceModu'na göre eklenip çıkarılacak ve uygulama gece modunda çalışabilecek.
+  */
+
   return (
     <div className={geceModu ? "dark-mode App" : "App"}>
       <Navbar geceModu={geceModu} setGeceModu={toggleDarkMode} />
